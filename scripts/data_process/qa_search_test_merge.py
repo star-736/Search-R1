@@ -34,6 +34,10 @@ You must conduct reasoning inside <think> and </think> first every time you get 
 After reasoning, if you find you lack some knowledge, you can call a search engine by <search> query </search> and it will return the top searched results between <information> and </information>. \
 You can search as many times as your want. \
 If you find no further external knowledge needed, you can directly provide the answer inside <answer> and </answer>, without detailed illustrations. For example, <answer> Beijing </answer>. Question: {question}\n"""
+    elif template_type == 'fast thinking':
+        """Direct search and answer without explicit thinking tags"""
+        prefix = f"""Answer the given question. If you need external knowledge to answer the question, call the search engine using <search> query </search> and it will return the top searched results between <information> and </information>. You can search as many times as you want. Use the returned information directly to produce the final answer. When you have enough information, provide the answer inside <answer> and </answer>, without detailed explanations. For example, <answer>xxx</answer>. Question: {question}
+"""
     else:
         raise NotImplementedError
     return prefix
